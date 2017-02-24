@@ -157,7 +157,7 @@ class AbstractConnection extends AbstractChannel
         $this->io = $io;
         $this->heartbeat = $heartbeat;
 
-        if ($user && $password) {
+        if ($user !== null && $password !== null) {
             $this->login_response = new AMQPWriter();
             $this->login_response->write_table(array(
                 'LOGIN' => array('S', $user),
