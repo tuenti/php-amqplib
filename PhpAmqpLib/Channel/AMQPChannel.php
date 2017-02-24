@@ -1101,6 +1101,10 @@ class AMQPChannel extends AbstractChannel
         $pkt = new AMQPWriter();
         $pkt->write($this->pre_publish($exchange, $routing_key, $mandatory, $immediate, $ticket));
 
+        if ($this->connection === null) {
+            throw new AMQPRuntimeException('The channel was closed while trying to publish a message');
+        }
+
         $this->connection->send_content(
             $this->channel_id,
             60,
