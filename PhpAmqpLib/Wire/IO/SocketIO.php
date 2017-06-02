@@ -60,7 +60,9 @@ class SocketIO extends AbstractIO
         }
 
         socket_set_block($this->sock);
-        socket_set_option($this->sock, SOL_TCP, TCP_NODELAY, 1);
+        if (defined('TCP_NODELAY')) {
+            socket_set_option($this->sock, SOL_TCP, TCP_NODELAY, 1);
+        }
 
         if ($this->keepalive) {
             $this->enable_keepalive();
