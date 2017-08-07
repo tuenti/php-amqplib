@@ -1137,7 +1137,7 @@ class AMQPChannel extends AbstractChannel
         $immediate = false,
         $ticket = null
     ) {
-        $this->batch_messages[] = func_get_args();
+        $this->batch_messages[] = \func_get_args();
     }
 
     /**

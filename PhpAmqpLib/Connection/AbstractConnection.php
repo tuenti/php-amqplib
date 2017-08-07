@@ -146,7 +146,7 @@ class AbstractConnection extends AbstractChannel
         $heartbeat = 0
     ) {
         // save the params for the use of __clone
-        $this->construct_params = func_get_args();
+        $this->construct_params = \func_get_args();
 
         $this->wait_frame_reader = new AMQPReader(null);
         $this->vhost = $vhost;

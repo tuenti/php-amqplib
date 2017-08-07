@@ -60,6 +60,6 @@ class AMQPStreamConnection extends AbstractConnection
         );
 
         // save the params for the use of __clone, this will overwrite the parent
-        $this->construct_params = func_get_args();
+        $this->construct_params = \func_get_args();
     }
 }
